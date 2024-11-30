@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.graynaud.maps</groupId>
+  <artifactId>desktop</artifactId>
+  <version>1.0</version>
+  <name>Maps - Desktop</name>
+
+  <properties>
+    <!-- Global properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <main.class>fr.graynaud.gitgray.GitGrayApplication</main.class>
+
+    <!-- Dependencies versions -->
+    <javafx.version>23.0.1</javafx.version>
+    <logback.version>1.5.12</logback.version>
+    <commons-lang3.version>3.17.0</commons-lang3.version>
+    <materialfx.version>11.17.0</materialfx.version>
+    <jav-leaflet.version>2.0.0</jav-leaflet.version>
+
+    <!-- Plugins versions -->
+    <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <gluonfx-maven-plugin.version>1.0.23</gluonfx-maven-plugin.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.github.palexdev</groupId>
+      <artifactId>materialfx</artifactId>
+      <version>${materialfx.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>fr.graynaud.maps</groupId>
+      <artifactId>java-leaflet</artifactId>
+      <version>${jav-leaflet.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <release>21</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>${javafx-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <configuration>
+              <mainClass>${main.class}</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.gluonhq</groupId>
+        <artifactId>gluonfx-maven-plugin</artifactId>
+        <version>${gluonfx-maven-plugin.version}</version>
+        <configuration>
+          <mainClass>${main.class}</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
